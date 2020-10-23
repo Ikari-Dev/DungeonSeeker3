@@ -1,0 +1,324 @@
+@import url(https://fonts.googleapis.com/css2?family=Atomic+Age&display=swap);
+html, body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 100vh;
+  overflow: hidden;
+  background: no-repeat center/120% url("../src/assets/background2.png");
+  color: black;
+  font-family: 'Atomic Age';
+}
+
+.app {
+  display: inline-block;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+  width: 100vh;
+}
+
+.menu {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-arround;
+      -ms-flex-pack: space-arround;
+          justify-content: space-arround;
+  min-width: 20vw;
+  background-color: #632458;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 100vh;
+  z-index: 1;
+  border-right: 5px ridge #381132;
+  -webkit-animation: anime-menuBar 1.5s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+          animation: anime-menuBar 1.5s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+  margin: 0;
+}
+
+li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 15vw;
+  list-style: none;
+}
+
+.menuButton {
+  width: 15vw;
+  margin-top: 1.5rem;
+  background-color: #800c0c;
+  border: 3.5px ridge #dab902;
+  padding: .5em 1em;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 5px black;
+          box-shadow: 0 0 5px black;
+  overflow: hidden;
+  color: white;
+  position: relative;
+  -webkit-transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+  outline: none;
+  font-family: 'Atomic Age';
+}
+
+.menuButton:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  background-color: #5a0707;
+  border: 3.8px ridge #f0cd08;
+}
+
+.menuButton:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50px;
+  height: 155px;
+  -webkit-clip-path: polygon(0 0, 46% 0, 100% 100%, 46% 100%);
+          clip-path: polygon(0 0, 46% 0, 100% 100%, 46% 100%);
+  background: rgba(255, 255, 255, 0.4);
+  -webkit-transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.menuButton:hover:after {
+  left: 130%;
+}
+
+.title {
+  position: absolute;
+  top: 10vh;
+  margin: auto;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 3.5vw;
+  font-family: 'Atomic Age';
+  font-size: 2.5rem;
+}
+
+.title span {
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: #800c0c;
+}
+
+.version {
+  position: absolute;
+  bottom: 0;
+  width: 200%;
+  margin: auto;
+  z-index: 10;
+  color: grey;
+  font-size: .8em;
+}
+
+.settings {
+  position: absolute;
+  z-index: 1;
+  color: white;
+  width: 100%;
+  height: 100%;
+}
+
+.credit {
+  position: relative;
+  z-index: 1;
+  color: white;
+  width: 100%;
+  height: 100%;
+}
+
+.pannel {
+  position: absolute;
+  display: block;
+  color: white;
+  background-color: #632458;
+  width: 92vw;
+  height: auto;
+  z-index: 2;
+  border: 5px ridge #381132;
+  margin: 2em 2em;
+  padding: 1em 1em;
+}
+
+.quit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.quit .buttonQuit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+}
+
+.checkButton {
+  display: none;
+}
+
+.checkButton + label {
+  margin-right: 1em;
+  cursor: pointer;
+  background-color: #800c0c;
+  border: 3.5px ridge #dab902;
+  padding: .5em 1em;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 5px black;
+          box-shadow: 0 0 5px black;
+  overflow: hidden;
+  color: white;
+  position: relative;
+  -webkit-transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+  outline: none;
+  font-family: 'Atomic Age';
+}
+
+.checkButton:not(:checked) + label:hover {
+  background-color: #dab902;
+  border: 3.5 ridge #f0cd08;
+}
+
+.checkButton + label:active,
+.checkButton:checked + label {
+  background-color: #dab902;
+}
+
+.menuIn {
+  -webkit-animation: anime-menuBarIn 1.5s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+          animation: anime-menuBarIn 1.5s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+}
+
+.menuOut {
+  -webkit-animation: anime-menuBarOut 1s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+          animation: anime-menuBarOut 1s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+}
+
+.fadeMenu-enter {
+  -webkit-transform: translateX(200%);
+          transform: translateX(200%);
+}
+
+.pannelIn {
+  -webkit-animation: anime-pannelIn 1s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+          animation: anime-pannelIn 1s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+}
+
+.pannelOut {
+  -webkit-animation: anime-pannelOut 1.5s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+          animation: anime-pannelOut 1.5s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+}
+
+.fadeOption-enter {
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
+}
+
+@-webkit-keyframes anime-menuBarIn {
+  0% {
+    -webkit-transform: translateX(-200%);
+            transform: translateX(-200%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+@keyframes anime-menuBarIn {
+  0% {
+    -webkit-transform: translateX(-200%);
+            transform: translateX(-200%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+@-webkit-keyframes anime-menuBarOut {
+  0% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  100% {
+    -webkit-transform: translateX(-200%);
+            transform: translateX(-200%);
+  }
+}
+
+@keyframes anime-menuBarOut {
+  0% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  100% {
+    -webkit-transform: translateX(-200%);
+            transform: translateX(-200%);
+  }
+}
+
+@-webkit-keyframes anime-pannelIn {
+  0% {
+    -webkit-transform: translateY(-200%);
+            transform: translateY(-200%);
+  }
+  100% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+}
+
+@keyframes anime-pannelIn {
+  0% {
+    -webkit-transform: translateY(-200%);
+            transform: translateY(-200%);
+  }
+  100% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+}
+
+@-webkit-keyframes anime-pannelOut {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  100% {
+    -webkit-transform: translateY(-200%);
+            transform: translateY(-200%);
+  }
+}
+
+@keyframes anime-pannelOut {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  100% {
+    -webkit-transform: translateY(-200%);
+            transform: translateY(-200%);
+  }
+}
+/*# sourceMappingURL=main.css.map */

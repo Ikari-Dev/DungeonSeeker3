@@ -1,0 +1,209 @@
+
+@import url(https://fonts.googleapis.com/css2?family=Atomic+Age&display=swap)    
+    
+$dark_red_color:  #5a0707
+$red_color:  #800c0c
+$violet_color:  #632458
+$dark_violet_color: #381132
+$gold_color: #dab902
+$light_gold_color: #f0cd08
+
+    
+html, body
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    height: 100vh
+    overflow: hidden
+    background: no-repeat center/120%  url("../src/assets/background2.png")
+    color: black
+    font-family: 'Atomic Age'
+
+.app
+    display: inline-block
+    flex-direction: column
+    height: 100vh
+    width: 100vh
+
+.menu
+    position: relative
+    display: flex
+    align-items: center
+    justify-content: space-arround
+    min-width: 20vw
+    background-color: $violet_color
+    top: 0
+    left: 0
+    width: 20%
+    height: 100vh
+    z-index: 1
+    border-right: 5px ridge $dark_violet_color
+    animation: anime-menuBar 1.5s cubic-bezier(0.77, 0, 0.18, 1) forwards
+    margin: 0
+
+li  
+    display: flex
+    width: 15vw
+    list-style: none
+
+.menuButton
+    width: 15vw
+    margin-top: 1.5rem
+    background-color: $red_color
+    border: 3.5px ridge $gold_color
+    padding: .5em 1em 
+    border-radius: 5px
+    box-shadow: 0 0 5px black
+    overflow: hidden
+    color: white
+    position: relative
+    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1)
+    outline: none
+    font-family: 'Atomic Age'
+  
+    &:hover
+        cursor: pointer
+        transform: scale(1.1)
+        background-color: $dark_red_color
+        border: 3.8px ridge $light_gold_color
+    
+.menuButton:after
+    content: ''
+    position: absolute
+    top: 0
+    left: -100%
+    width: 50px
+    height: 155px
+    clip-path: polygon(0 0, 46% 0, 100% 100%, 46% 100%)
+    background: rgba(255,255,255,.4)
+    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1)
+    transition: .5s
+
+.menuButton:hover:after
+    left: 130%
+
+.title
+    position: absolute
+    top: 10vh
+    margin: auto
+    width: 100%
+    align-items: center
+    padding-left: 3.5vw
+    font-family: 'Atomic Age'
+    font-size: 2.5rem
+
+    span 
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black
+        color: $red_color
+
+.version
+    position: absolute
+    bottom: 0
+    width: 200%
+    margin: auto
+    z-index: 10
+    color: grey 
+    font-size: .8em    
+
+.settings
+    position: absolute
+    z-index: 1
+    color: white
+    width: 100%
+    height: 100%
+
+.credit
+    position: relative
+    z-index: 1
+    color: white
+    width: 100%
+    height: 100%
+
+.pannel
+    position: absolute
+    display: block
+    color: white
+    background-color: $violet_color
+    width: 92vw
+    height: auto
+    z-index: 2
+    border: 5px ridge $dark_violet_color
+    margin: 2em 2em
+    padding: 1em 1em
+    
+.quit
+    display: flex
+    align-items: center
+
+    .buttonQuit
+        display: flex
+        margin: auto
+
+.checkButton
+    display: none
+
+.checkButton + label
+    margin-right: 1em
+    cursor: pointer
+    background-color: $red_color
+    border: 3.5px ridge $gold_color
+    padding: .5em 1em 
+    border-radius: 5px
+    box-shadow: 0 0 5px black
+    overflow: hidden
+    color: white
+    position: relative
+    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1)
+    outline: none
+    font-family: 'Atomic Age'
+
+.checkButton:not(:checked) + label:hover
+    background-color: $gold_color
+    border: 3.5 ridge $light_gold_color
+
+.checkButton + label:active,
+.checkButton:checked + label
+    background-color: $gold_color
+
+.menuIn
+    animation: anime-menuBarIn 1.5s cubic-bezier(0.77, 0, 0.18, 1) forwards
+
+.menuOut
+    animation: anime-menuBarOut 1s cubic-bezier(0.77, 0, 0.18, 1) forwards
+
+.fadeMenu-enter
+    transform: translateX(200%)
+
+.pannelIn
+    animation: anime-pannelIn 1s cubic-bezier(0.77, 0, 0.18, 1) forwards
+
+.pannelOut
+    animation: anime-pannelOut 1.5s cubic-bezier(0.77, 0, 0.18, 1) forwards
+
+.fadeOption-enter
+    transform: translateY(0%)
+
+@keyframes anime-menuBarIn
+    0%
+        transform: translateX(-200%)
+    100%
+        transform: translateX(0%)
+
+@keyframes anime-menuBarOut
+    0%
+        transform: translateX(0%)
+    100%
+        transform: translateX(-200%)
+
+@keyframes anime-pannelIn
+    0%
+        transform: translateY(-200%)
+    100%
+        transform: translateY(-100%)
+
+@keyframes anime-pannelOut
+    0%
+        transform: translateY(-100%)
+    100%
+        transform: translateY(-200%)
+        
