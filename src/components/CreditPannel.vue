@@ -1,19 +1,17 @@
 <template>
-    <div class="pannel">
-        <h1>Credit</h1>
-        <h3>Dev: Delcroix Florian</h3>
-        <div class="quit">
-            <MenuButton class="buttonQuit" v-on:click.native="quitter()">Quitter</MenuButton>
+    <div v-bind:class="{ pannelRetro: this.$parent.retro, pannel: this.$parent.moderne }">
+        <h1>CREDIT</h1>
+        <h3>DEV: Delcroix Florian</h3>
+        <div v-bind:class="{ quitRetro: this.$parent.retro, quit: this.$parent.moderne }">
+            <button v-on:click="quitter()" v-bind:class="{ menuButtonRetro: this.$parent.retro, menuButton: this.$parent.moderne }">
+            Quitter
+            </button>
         </div>
     </div>  
 </template>
 <script>
-import MenuButton from './MenuButton.vue'
 
 export default {
-    components: {
-        MenuButton,
-    },
     methods: {
         quitter(){
             this.$parent.credit = false
@@ -21,8 +19,12 @@ export default {
             console.log("Quitter credit")
         }
     },
+    created() {
+        //document.getElementById("").classList.add("")
+    }
 }
 </script>
 <style>
+    @import '../../styles/mainModerne.css';
     @import '../../styles/main.css';
 </style>

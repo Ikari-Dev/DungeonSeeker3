@@ -12,7 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "vue": "^2.6.12"
+    "es6-promise": "^4.2.8",
+    "vue": "^2.6.12",
+    "vuex": "^3.5.1"
   },
   "devDependencies": {
     "@vue/cli-service": "^4.5.8",
@@ -25,5 +27,13 @@
     "vue-loader-plugin": "^1.3.0",
     "vue-template-compiler": "^2.6.12"
   },
-  "postcss": {}
+  "postcss": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ikari-Dev/DungeonSeeker3.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ikari-Dev/DungeonSeeker3/issues"
+  },
+  "homepage": "https://github.com/Ikari-Dev/DungeonSeeker3#readme"
 }
